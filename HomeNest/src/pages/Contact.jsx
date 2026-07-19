@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Contact.css";
+import "../static/Contact.css";
 
 const initialState = {
   fullName: "",

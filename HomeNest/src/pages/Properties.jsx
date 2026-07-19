@@ -3,6 +3,7 @@ import propertiesData from "../data/properties.json";
 import PropertyCard from "../components/PropertyCard";
 import Testimonials from "../components/Testimonials";
 import FAQAccordion from "../components/FAQAccordion";
+import "../static/Properties.css";
 
 function Properties() {
   const [activeFilter, setActiveFilter] = useState("All");
