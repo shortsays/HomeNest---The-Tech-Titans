@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "photo": "https://randomuser.me/api/portraits/men/32.jpg",
+    "name": "Rahul Sharma",
+    "role": "Senior Property Consultant",
+    "bio": "Specialist in luxury apartments with over 10 years of experience."
+  },
+  {
+    "id": 2,
+    "photo": "https://randomuser.me/api/portraits/women/44.jpg",
+    "name": "Priya Verma",
+    "role": "Sales Manager",
+    "bio": "Helps families find affordable and premium homes."
+  },
+  {
+    "id": 3,
+    "photo": "https://randomuser.me/api/portraits/men/65.jpg",
+    "name": "Amit Singh",
+    "role": "Legal Advisor",
+    "bio": "Expert in property documentation and legal assistance."
+  }
+]

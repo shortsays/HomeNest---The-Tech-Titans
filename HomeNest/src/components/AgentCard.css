@@ -1,0 +1,35 @@
+.agent-card {
+    width: 300px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 12px rgba(0,0,0,.15);
+    text-align: center;
+    transition: .3s;
+}
+
+.agent-card:hover {
+    transform: translateY(-8px);
+}
+
+.agent-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.agent-card h3 {
+    color: #0f4c81;
+}
+
+.agent-card h4 {
+    color: #555;
+    margin: 10px 0;
+}
+
+.agent-card p {
+    color: #666;
+    line-height: 1.6;
+}
