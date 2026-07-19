@@ -1,0 +1,41 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:white;
+}
+
+.benefits{
+padding:80px 8%;
+background:white;
+}
+
+.benefits h2{
+text-align:center;
+margin-bottom:50px;
+font-size:38px;
+}
+
+.benefit-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+text-align:center;
+}
+
+.benefit-grid div{
+padding:40px;
+border-radius:10px;
+background:#f8f9fa;
+box-shadow:0 8px 18px rgba(0,0,0,.08);
+}
+
+.benefit-grid h3{
+font-size:45px;
+color:#0d6efd;
+margin-bottom:10px;
+}
