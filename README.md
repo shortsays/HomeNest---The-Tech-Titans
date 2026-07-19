@@ -3,183 +3,467 @@
 <p align="center">
   <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white&style=flat-square" />
   <img src="https://img.shields.io/badge/React_Router-DOM-CA4245?logo=reactrouter&logoColor=white&style=flat-square" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-3-38B2AC?logo=tailwindcss&logoColor=white&style=flat-square" />
-  <img src="https://img.shields.io/badge/Status-In_Development-yellow?style=flat-square" />
+  <img src="https://img.shields.io/badge/CSS3-Responsive-1572B6?logo=css3&logoColor=white&style=flat-square" />
+  <img src="https://img.shields.io/badge/Status-Completed-success?style=flat-square" />
   <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" />
 </p>
 
 <p align="center">
-  A frontend prototype for a real estate agency — built to showcase property listings and convert visitors into leads.
+  A modern React-based Real Estate Listing Platform designed to showcase verified properties, generate customer leads, and provide a seamless browsing experience.
 </p>
 
 ---
 
-## 📑 Table of Contents
+# 📑 Table of Contents
 
-- [Overview](#-overview)
-- [Tech Stack](#-tech-stack)
-- [Architecture](#-architecture)
-- [Pages & Features](#-pages--features)
-- [Folder Structure](#-folder-structure)
-- [Getting Started](#-getting-started)
-- [Team](#-team)
-- [Notes](#-notes)
-
----
-
-## 📖 Overview
-
-HomeNest is built as a **component-driven React application** simulating a real estate agency's public-facing website. It focuses on clean architecture, reusable UI components, controlled forms, and client-side state management — with no backend dependency (form submissions are simulated via conditional rendering).
+- Overview
+- Features
+- Tech Stack
+- Project Architecture
+- Pages
+- Folder Structure
+- Installation
+- Available Scripts
+- Responsive Design
+- Team
+- Future Improvements
+- License
 
 ---
 
-## 🛠 Tech Stack
+# 📖 Overview
 
-| Layer | Technology |
-|---|---|
-| Framework | React (Functional Components + Hooks) |
-| Routing | React Router DOM |
-| Styling | Tailwind CSS |
-| State Management | `useState` / `useEffect` |
-| Data Layer | Static JSON (`/data`) |
-| Version Control | Git & GitHub |
+HomeNest is a **React frontend prototype** developed for a real estate agency. The project follows a **component-based architecture**, uses **React Router DOM** for navigation, **useState** for state management, and **JSON files** for dynamic rendering of property listings, agents, and testimonials.
+
+The application demonstrates reusable components, controlled forms, client-side validation, and responsive design principles.
 
 ---
 
-## 🏗 Architecture
+# ✨ Features
+
+## 🏠 Home Page
+
+- Responsive Navbar
+- Hero Section
+- Browse Properties CTA
+- Feature Cards
+- Benefits Section
+- Footer
+
+---
+
+## 🏘️ Properties Page
+
+- Dynamic Property Listings
+- Property Cards
+- Buy / Rent / Lease Filter
+- Testimonials
+- FAQ Accordion
+- Responsive Grid Layout
+
+---
+
+## ✉️ Contact Page
+
+- Controlled React Form
+- JavaScript Validation
+- Dropdown
+- Radio Buttons
+- Checkboxes
+- Textarea
+- Submit & Reset Buttons
+- Success Message using Conditional Rendering
+
+---
+
+## 👥 About Page
+
+- Company Introduction
+- Mission & Vision
+- Agent Cards
+- Company Timeline
+
+---
+
+# 🛠 Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| React | Frontend Framework |
+| React Router DOM | Routing |
+| JavaScript (ES6+) | Application Logic |
+| CSS3 | Styling |
+| React Hooks | State Management |
+| JSON | Static Data |
+| Git & GitHub | Version Control |
+
+---
+
+# 🏗 Project Architecture
 
 ```mermaid
 flowchart TD
-    A[App.jsx] --> B[Router]
-    B --> C[Home /]
-    B --> D[Properties /properties]
-    B --> E[Contact /contact]
-    B --> F[About /about]
 
-    C --> C1[Navbar]
-    C --> C2[Hero]
-    C --> C3[FeatureCard x4]
-    C --> C4[Benefits]
-    C --> C5[Footer]
+App --> Home
+App --> Properties
+App --> Contact
+App --> About
 
-    D --> D1[Filter Tabs Buy Rent Lease]
-    D --> D2[PropertyCard List]
-    D --> D3[Testimonials]
-    D --> D4[FAQ Accordion]
-    D2 -- reads --> G[(properties.json)]
+Home --> Navbar
+Home --> Hero
+Home --> FeatureCards
+Home --> Benefits
+Home --> Footer
 
-    E --> E1[Controlled Form]
-    E1 --> E2{Validation}
-    E2 -- Invalid --> E3[Show Errors]
-    E2 -- Valid --> E4[Success Message]
+Properties --> FilterTabs
+Properties --> PropertyCards
+Properties --> Testimonials
+Properties --> FAQAccordion
+Properties --> Footer
 
-    F --> F1[Mission and Vision]
-    F --> F2[AgentCard List]
-    F --> F3[Company Timeline]
-    F2 -- reads --> H[(agents.json)]
+Contact --> ContactForm
+ContactForm --> Validation
+Validation --> SuccessMessage
+
+About --> Mission
+About --> Vision
+About --> AgentCards
+About --> Timeline
+About --> Footer
 ```
-
-> Data flows one-way: JSON files in `/data` → parent page components → child components via props.
 
 ---
 
-## 📄 Pages & Features
+# 📄 Pages
 
-### 🏠 Home (`/`)
-- Navbar with active-link styling
-- Hero section with headline & CTA
-- 4+ feature highlights (Verified Listings, Home Loans, Virtual Tours, Legal Assistance)
-- Benefits section
-- Footer with contact & social info
+## 🏠 Home (/)
 
-### 🏘️ Properties (`/properties`)
-- Property listings rendered dynamically from JSON
-- Filter tabs — Buy / Rent / Lease
-- Client testimonials
-- FAQ accordion (`useState`-driven toggle)
+### Components
 
-### ✉️ Contact (`/contact`)
-- Fully controlled enquiry form: Name, Email, Phone, Visit Date, Property Type (dropdown), Purpose (radio), Amenities (checkboxes), Message
-- JS-based validation — no HTML5-only validation
-- Conditional error messages per field
-- Success message shown on valid submission (simulated, no backend)
+- Navbar
+- Hero
+- FeatureCard
+- Benefits Section
+- Footer
 
-### 👥 About (`/about`)
-- Mission & vision
-- Agent profiles via `AgentCard` (photo, name, role, bio)
-- Company story timeline
+### Features
+
+- Active Navigation
+- Hero Banner
+- Browse Properties Button
+- Four Feature Cards rendered using `.map()`
+- Responsive Layout
 
 ---
 
-## 📁 Folder Structure
+## 🏘️ Properties (/properties)
 
-```
+### Components
+
+- Navbar
+- FilterTabs
+- PropertyCard
+- Testimonials
+- FAQAccordion
+- Footer
+
+### Features
+
+- Dynamic Property Cards
+- JSON Data Rendering
+- Buy Filter
+- Rent Filter
+- Lease Filter
+- Testimonials
+- FAQ Accordion using useState
+
+---
+
+## ✉️ Contact (/contact)
+
+### Components
+
+- Navbar
+- Contact Form
+- Footer
+
+### Features
+
+- Controlled Components
+- Form Validation
+- Error Messages
+- Success Message
+- Reset Button
+
+---
+
+## 👥 About (/about)
+
+### Components
+
+- Navbar
+- Mission Section
+- Vision Section
+- AgentCard
+- Timeline
+- Footer
+
+### Features
+
+- Dynamic Team Cards
+- Company History
+- Responsive Layout
+
+---
+
+# 📂 Folder Structure
+
+```text
 homenest/
 ├── public/
+│
 ├── src/
 │   ├── components/
 │   │   ├── Navbar.jsx
+│   │   ├── Navbar.css
 │   │   ├── Footer.jsx
+│   │   ├── Footer.css
 │   │   ├── Hero.jsx
+│   │   ├── Hero.css
 │   │   ├── FeatureCard.jsx
+│   │   ├── FeatureCard.css
 │   │   ├── PropertyCard.jsx
+│   │   ├── PropertyCard.css
 │   │   ├── AgentCard.jsx
+│   │   ├── AgentCard.css
 │   │   ├── FilterTabs.jsx
+│   │   ├── FilterTabs.css
 │   │   ├── FAQAccordion.jsx
-│   │   └── Testimonials.jsx
+│   │   ├── FAQAccordion.css
+│   │   ├── Testimonials.jsx
+│   │   └── Testimonials.css
+│   │
 │   ├── pages/
 │   │   ├── Home.jsx
+│   │   ├── Home.css
 │   │   ├── Properties.jsx
 │   │   ├── Contact.jsx
-│   │   └── About.jsx
+│   │   ├── Contact.css
+│   │   ├── About.jsx
+│   │   └── About.css
+│   │
 │   ├── data/
 │   │   ├── properties.json
 │   │   ├── agents.json
 │   │   └── testimonials.json
+│   │
 │   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
 │   └── main.jsx
+│
+├── .gitignore
 ├── package.json
+├── package-lock.json
+├── vite.config.js
 └── README.md
 ```
 
 ---
 
-## 🚀 Getting Started
+# 🔄 Data Flow
 
-**1. Clone the repository**
+```
+properties.json
+        │
+        ▼
+Properties.jsx
+        │
+        ▼
+PropertyCard.jsx
+
+----------------------------
+
+agents.json
+      │
+      ▼
+About.jsx
+      │
+      ▼
+AgentCard.jsx
+
+----------------------------
+
+testimonials.json
+         │
+         ▼
+Testimonials.jsx
+```
+
+---
+
+# ⚙️ Installation
+
+Clone the repository
+
 ```bash
 git clone https://github.com/shortsays/HomeNest---The-Tech-Titans.git
+```
+
+Move inside the project
+
+```bash
 cd HomeNest---The-Tech-Titans
 ```
 
-**2. Install dependencies**
+Install dependencies
+
 ```bash
 npm install
 ```
 
-**3. Run the development server**
+Start development server
+
 ```bash
 npm run dev
 ```
 
-App runs at `http://localhost:5173` by default.
+Open
+
+```
+http://localhost:5173
+```
 
 ---
 
-## 👨‍💻 Team — The Tech Titans
+# 📜 Available Scripts
 
-| Module | Owner |
-|---|---|
-| Home Page & Routing Setup | — |
-| Properties Page, Filtering & Data Layer | Anisha |
-| Contact Form & Validation | — |
-| About Page & FAQ | — |
-| Styling, Responsiveness & Deployment | — |
+Install Packages
+
+```bash
+npm install
+```
+
+Run Development Server
+
+```bash
+npm run dev
+```
+
+Build Project
+
+```bash
+npm run build
+```
+
+Preview Production Build
+
+```bash
+npm run preview
+```
 
 ---
 
-## 📌 Notes
+# 📱 Responsive Design
 
-- No backend — form submissions are handled via conditional UI rendering only.
-- Fully responsive across mobile, tablet, and desktop (Flexbox/Grid + media queries).
-- Built with clean, incremental, feature-based commits.
+The application is fully responsive using
+
+- Flexbox
+- CSS Grid
+- Media Queries
+
+Supported Devices
+
+- Desktop
+- Laptop
+- Tablet
+- Mobile
+
+---
+
+# ⚛ React Concepts Used
+
+- Functional Components
+- React Router DOM
+- useState
+- Props
+- Conditional Rendering
+- Event Handling
+- Controlled Components
+- Array Mapping
+- Component Reusability
+
+---
+
+# 📊 Assignment Requirements Covered
+
+| Requirement | Status |
+|------------|--------|
+| React Functional Components | ✅ |
+| React Router DOM | ✅ |
+| Navbar | ✅ |
+| Hero | ✅ |
+| Feature Cards | ✅ |
+| Footer | ✅ |
+| Property Cards | ✅ |
+| JSON Data | ✅ |
+| Props | ✅ |
+| Filter Tabs | ✅ |
+| Testimonials | ✅ |
+| FAQ Accordion | ✅ |
+| useState | ✅ |
+| Contact Form | ✅ |
+| JS Validation | ✅ |
+| Success Message | ✅ |
+| Agent Cards | ✅ |
+| Timeline | ✅ |
+| Responsive Design | ✅ |
+
+---
+
+# 👨‍💻 Team
+
+## The Tech Titans
+
+| Module | Team Member |
+|---------|-------------|
+| **Team Leader & Home Page** | **Ankit Saraswat** |
+| **Properties Page** | **Anisha Ranjan** |
+| **Contact Page** | **Vrinda** |
+| **About Page** | **Aditya** |
+| **Project Presentation** | **Ajay** |
+
+### Team Responsibilities
+
+- **Ankit Saraswat (Team Leader)** – Led the project, designed and developed the Home Page, set up the React project structure, configured routing, integrated components, managed Git/GitHub workflow, and coordinated the overall development process.
+- **Anisha Ranjan** – Developed the Properties Page, including dynamic property listings, filter tabs, testimonials, and FAQ accordion.
+- **Vrinda** – Built the Contact Page with a fully controlled React form, JavaScript validation, conditional rendering, and responsive design.
+- **Aditya** – Developed the About Page, including the Mission & Vision section, Agent Cards, and Company Timeline.
+- **Ajay** – Prepared and delivered the project presentation, documenting the application's features, architecture, workflow, and demonstrating the project during evaluation.
+
+---
+
+# 🚀 Future Improvements
+
+- Backend Integration
+- User Authentication
+- Property Search
+- Wishlist
+- Google Maps Integration
+- Property Details Page
+- Admin Dashboard
+- Dark Mode
+- Image Gallery
+- Live Chat Support
+
+---
+
+# 📄 License
+
+This project is developed for academic purposes as part of a React Frontend assignment.
+
+---
+
+<p align="center">
+Made with ❤️ using React by <strong>The Tech Titans</strong>
+</p>
