@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Rohan Mehta",
+    "role": "Bought a Villa in Hyderabad",
+    "quote": "HomeNest made the entire buying process transparent and stress-free. Found my dream home in 2 weeks!"
+  },
+  {
+    "id": 2,
+    "name": "Priya Sharma",
+    "role": "Rented an Apartment in Mumbai",
+    "quote": "Great listings, verified agents, and quick responses. Highly recommend for renters."
+  },
+  {
+    "id": 3,
+    "name": "Arjun Nair",
+    "role": "Leased Commercial Space",
+    "quote": "The team helped us find the perfect retail space within our budget and timeline."
+  }
+]

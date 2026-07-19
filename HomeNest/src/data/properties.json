@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "3BHK Luxury Apartment",
+    "location": "Whitefield, Bangalore",
+    "size": "1450 sqft",
+    "price": 8500000,
+    "type": "Apartment",
+    "purpose": "Buy",
+    "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600",
+    "bedrooms": 3,
+    "bathrooms": 2
+  },
+  {
+    "id": 2,
+    "title": "2BHK Cozy Villa",
+    "location": "Sector 45, Gurgaon",
+    "size": "1100 sqft",
+    "price": 25000,
+    "type": "Villa",
+    "purpose": "Rent",
+    "image": "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=600",
+    "bedrooms": 2,
+    "bathrooms": 2
+  },
+  {
+    "id": 3,
+    "title": "Commercial Plot",
+    "location": "MG Road, Pune",
+    "size": "2400 sqft",
+    "price": 12000000,
+    "type": "Plot",
+    "purpose": "Lease",
+    "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600",
+    "bedrooms": 0,
+    "bathrooms": 0
+  },
+  {
+    "id": 4,
+    "title": "1BHK Modern Flat",
+    "location": "Andheri, Mumbai",
+    "size": "650 sqft",
+    "price": 18000,
+    "type": "Apartment",
+    "purpose": "Rent",
+    "image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600",
+    "bedrooms": 1,
+    "bathrooms": 1
+  },
+  {
+    "id": 5,
+    "title": "4BHK Independent Villa",
+    "location": "Jubilee Hills, Hyderabad",
+    "size": "3200 sqft",
+    "price": 25000000,
+    "type": "Villa",
+    "purpose": "Buy",
+    "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600",
+    "bedrooms": 4,
+    "bathrooms": 4
+  },
+  {
+    "id": 6,
+    "title": "Retail Shop Space",
+    "location": "Connaught Place, Delhi",
+    "size": "800 sqft",
+    "price": 60000,
+    "type": "Commercial",
+    "purpose": "Lease",
+    "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600",
+    "bedrooms": 0,
+    "bathrooms": 1
+  }
+]
