@@ -1,74 +1,56 @@
 [
   {
     "id": 1,
-    "title": "3BHK Luxury Apartment",
-    "location": "Whitefield, Bangalore",
-    "size": "1450 sqft",
-    "price": 8500000,
-    "type": "Apartment",
-    "purpose": "Buy",
-    "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600",
-    "bedrooms": 3,
-    "bathrooms": 2
+    "title": "Luxury Villa",
+    "location": "Noida, Uttar Pradesh",
+    "size": "3200 sq.ft",
+    "price": "₹1.85 Cr",
+    "type": "Buy",
+    "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900"
   },
   {
     "id": 2,
-    "title": "2BHK Cozy Villa",
-    "location": "Sector 45, Gurgaon",
-    "size": "1100 sqft",
-    "price": 25000,
-    "type": "Villa",
-    "purpose": "Rent",
-    "image": "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=600",
-    "bedrooms": 2,
-    "bathrooms": 2
+    "title": "Modern Apartment",
+    "location": "Gurugram, Haryana",
+    "size": "1650 sq.ft",
+    "price": "₹85 Lakhs",
+    "type": "Buy",
+    "image": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=900"
   },
   {
     "id": 3,
-    "title": "Commercial Plot",
-    "location": "MG Road, Pune",
-    "size": "2400 sqft",
-    "price": 12000000,
-    "type": "Plot",
-    "purpose": "Lease",
-    "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600",
-    "bedrooms": 0,
-    "bathrooms": 0
+    "title": "Premium Office Space",
+    "location": "Delhi",
+    "size": "2800 sq.ft",
+    "price": "₹80,000 / Month",
+    "type": "Lease",
+    "image": "https://images.unsplash.com/photo-1494526585095-c41746248156?w=900"
   },
   {
     "id": 4,
-    "title": "1BHK Modern Flat",
-    "location": "Andheri, Mumbai",
-    "size": "650 sqft",
-    "price": 18000,
-    "type": "Apartment",
-    "purpose": "Rent",
-    "image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600",
-    "bedrooms": 1,
-    "bathrooms": 1
+    "title": "Family Apartment",
+    "location": "Lucknow",
+    "size": "1400 sq.ft",
+    "price": "₹28,000 / Month",
+    "type": "Rent",
+    "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900"
   },
   {
     "id": 5,
-    "title": "4BHK Independent Villa",
-    "location": "Jubilee Hills, Hyderabad",
-    "size": "3200 sqft",
-    "price": 25000000,
-    "type": "Villa",
-    "purpose": "Buy",
-    "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600",
-    "bedrooms": 4,
-    "bathrooms": 4
+    "title": "Commercial Plot",
+    "location": "Greater Noida",
+    "size": "4500 sq.ft",
+    "price": "₹2.5 Cr",
+    "type": "Buy",
+    "image": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=900"
   },
   {
     "id": 6,
-    "title": "Retail Shop Space",
-    "location": "Connaught Place, Delhi",
-    "size": "800 sqft",
-    "price": 60000,
-    "type": "Commercial",
-    "purpose": "Lease",
-    "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600",
-    "bedrooms": 0,
-    "bathrooms": 1
+    "title": "Luxury Penthouse",
+    "location": "Mumbai",
+    "size": "3600 sq.ft",
+    "price": "₹1.2 Lakh / Month",
+    "type": "Rent",
+    "image": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=900"
   }
 ]

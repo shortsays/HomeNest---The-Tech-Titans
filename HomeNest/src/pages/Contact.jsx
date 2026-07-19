@@ -1,24 +1,18 @@
 import { useState } from "react";
-import "../static/Contact.css";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import "./Contact.css";
 
 const initialState = {
   fullName: "",
   email: "",
   phone: "",
-  visitDate: "",
+  date: "",
   propertyType: "",
   purpose: "",
   amenities: [],
   message: "",
 };
-
-const amenitiesList = [
-  "Parking",
-  "Swimming Pool",
-  "Garden",
-  "Gym",
-  "Security",
-];
 
 function Contact() {
   const [formData, setFormData] = useState(initialState);
@@ -26,7 +20,26 @@ function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
+
+    if (type === "checkbox") {
+      let updatedAmenities = [...formData.amenities];
+
+      if (checked) {
+        updatedAmenities.push(value);
+      } else {
+        updatedAmenities = updatedAmenities.filter(
+          (item) => item !== value
+        );
+      }
+
+      setFormData({
+        ...formData,
+        amenities: updatedAmenities,
+      });
+
+      return;
+    }
 
     setFormData({
       ...formData,
@@ -34,26 +47,8 @@ function Contact() {
     });
   };
 
-  const handleCheckbox = (e) => {
-    const { value, checked } = e.target;
-
-    if (checked) {
-      setFormData({
-        ...formData,
-        amenities: [...formData.amenities, value],
-      });
-    } else {
-      setFormData({
-        ...formData,
-        amenities: formData.amenities.filter(
-          (item) => item !== value
-        ),
-      });
-    }
-  };
-
   const validate = () => {
-    let newErrors = {};
+    const newErrors = {};
 
     if (!formData.fullName.trim()) {
       newErrors.fullName = "Full name is required";
@@ -70,11 +65,11 @@ function Contact() {
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
     } else if (!/^[0-9]{10}$/.test(formData.phone)) {
-      newErrors.phone = "Enter a valid 10-digit number";
+      newErrors.phone = "Enter a valid 10-digit phone number";
     }
 
-    if (!formData.visitDate) {
-      newErrors.visitDate = "Choose visit date";
+    if (!formData.date) {
+      newErrors.date = "Select a visit date";
     }
 
     if (!formData.propertyType) {
@@ -82,7 +77,7 @@ function Contact() {
     }
 
     if (!formData.purpose) {
-      newErrors.purpose = "Choose purpose";
+      newErrors.purpose = "Select purpose";
     }
 
     if (formData.amenities.length === 0) {
@@ -101,13 +96,13 @@ function Contact() {
 
     const validationErrors = validate();
 
-    if (Object.keys(validationErrors).length > 0) {
+    if (Object.keys(validationErrors).length === 0) {
+      setSubmitted(true);
+      setErrors({});
+      setFormData(initialState);
+    } else {
       setErrors(validationErrors);
       setSubmitted(false);
-    } else {
-      setErrors({});
-      setSubmitted(true);
-      setFormData(initialState);
     }
   };
 
@@ -118,182 +113,149 @@ function Contact() {
   };
 
   return (
-    <section className="contact-page">
-      <div className="contact-container">
+    <>
+      <Navbar />
 
-        <h1>Schedule a Site Visit</h1>
-        <p>
-          Fill out the enquiry form and our property expert will contact you soon.
-        </p>
+      <section className="contact-section">
+        <div className="container">
 
-        {submitted ? (
-          <div className="success-box">
-            <h2>🎉 Enquiry Submitted Successfully!</h2>
-            <p>
-              Thank you for contacting HomeNest. Our team will reach out shortly.
-            </p>
+          <h2>Book a Site Visit</h2>
 
-            <button
-              onClick={() => setSubmitted(false)}
-              className="btn"
-            >
-              Submit Another Response
-            </button>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} noValidate>
+          <p>
+            Fill out the form below and our property expert will contact you shortly.
+          </p>
 
-            <div className="form-group">
-              <label>Full Name</label>
-              <input
-                type="text"
-                name="fullName"
-                value={formData.fullName}
-                onChange={handleChange}
-              />
-              {errors.fullName && (
-                <span className="error">{errors.fullName}</span>
-              )}
+          {submitted ? (
+            <div className="success-message">
+              <h3>Thank You!</h3>
+              <p>Your enquiry has been submitted successfully.</p>
             </div>
+          ) : (
+            <form onSubmit={handleSubmit} noValidate>
 
-            <div className="form-group">
-              <label>Email</label>
-              <input
-                type="text"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-              />
-              {errors.email && (
-                <span className="error">{errors.email}</span>
-              )}
-            </div>
-
-            <div className="form-group">
-              <label>Phone Number</label>
-              <input
-                type="text"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-              />
-              {errors.phone && (
-                <span className="error">{errors.phone}</span>
-              )}
-            </div>
-
-            <div className="form-group">
-              <label>Preferred Visit Date</label>
-              <input
-                type="date"
-                name="visitDate"
-                value={formData.visitDate}
-                onChange={handleChange}
-              />
-              {errors.visitDate && (
-                <span className="error">{errors.visitDate}</span>
-              )}
-            </div>
-
-            <div className="form-group">
-              <label>Property Type</label>
-
-              <select
-                name="propertyType"
-                value={formData.propertyType}
-                onChange={handleChange}
-              >
-                <option value="">Select</option>
-                <option>Apartment</option>
-                <option>Villa</option>
-                <option>Plot</option>
-                <option>Commercial</option>
-              </select>
-
-              {errors.propertyType && (
-                <span className="error">{errors.propertyType}</span>
-              )}
-            </div>
-
-            <div className="form-group">
-              <label>Purpose</label>
-
-              <div className="radio-group">
-                {["Buy", "Rent", "Lease"].map((item) => (
-                  <label key={item}>
-                    <input
-                      type="radio"
-                      name="purpose"
-                      value={item}
-                      checked={formData.purpose === item}
-                      onChange={handleChange}
-                    />
-                    {item}
-                  </label>
-                ))}
+              <div className="input-group">
+                <label>Full Name</label>
+                <input
+                  type="text"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                />
+                {errors.fullName && <span>{errors.fullName}</span>}
               </div>
 
-              {errors.purpose && (
-                <span className="error">{errors.purpose}</span>
-              )}
-            </div>
-
-            <div className="form-group">
-              <label>Amenities</label>
-
-              <div className="checkbox-group">
-                {amenitiesList.map((item) => (
-                  <label key={item}>
-                    <input
-                      type="checkbox"
-                      value={item}
-                      checked={formData.amenities.includes(item)}
-                      onChange={handleCheckbox}
-                    />
-                    {item}
-                  </label>
-                ))}
+              <div className="input-group">
+                <label>Email</label>
+                <input
+                  type="text"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+                {errors.email && <span>{errors.email}</span>}
               </div>
 
-              {errors.amenities && (
-                <span className="error">{errors.amenities}</span>
-              )}
-            </div>
+              <div className="input-group">
+                <label>Phone Number</label>
+                <input
+                  type="text"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                />
+                {errors.phone && <span>{errors.phone}</span>}
+              </div>
 
-            <div className="form-group">
-              <label>Message</label>
+              <div className="input-group">
+                <label>Preferred Visit Date</label>
+                <input
+                  type="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                />
+                {errors.date && <span>{errors.date}</span>}
+              </div>
 
-              <textarea
-                rows="5"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-              ></textarea>
+              <div className="input-group">
+                <label>Property Type</label>
+                <select
+                  name="propertyType"
+                  value={formData.propertyType}
+                  onChange={handleChange}
+                >
+                  <option value="">Select</option>
+                  <option>Apartment</option>
+                  <option>Villa</option>
+                  <option>Plot</option>
+                  <option>Commercial</option>
+                </select>
+                {errors.propertyType && <span>{errors.propertyType}</span>}
+              </div>
 
-              {errors.message && (
-                <span className="error">{errors.message}</span>
-              )}
-            </div>
+              <div className="input-group">
+                <label>Purpose</label>
 
-            <div className="button-group">
-              <button type="submit" className="btn">
-                Submit
-              </button>
+                <div className="radio-group">
+                  <label><input type="radio" name="purpose" value="Buy" onChange={handleChange} checked={formData.purpose==="Buy"} /> Buy</label>
 
-              <button
-                type="button"
-                className="btn reset-btn"
-                onClick={handleReset}
-              >
-                Reset
-              </button>
-            </div>
+                  <label><input type="radio" name="purpose" value="Rent" onChange={handleChange} checked={formData.purpose==="Rent"} /> Rent</label>
 
-          </form>
-        )}
+                  <label><input type="radio" name="purpose" value="Lease" onChange={handleChange} checked={formData.purpose==="Lease"} /> Lease</label>
+                </div>
 
-      </div>
-    </section>
+                {errors.purpose && <span>{errors.purpose}</span>}
+              </div>
+
+              <div className="input-group">
+                <label>Amenities</label>
+
+                <div className="checkbox-group">
+                  <label><input type="checkbox" value="Parking" onChange={handleChange} checked={formData.amenities.includes("Parking")} /> Parking</label>
+
+                  <label><input type="checkbox" value="Gym" onChange={handleChange} checked={formData.amenities.includes("Gym")} /> Gym</label>
+
+                  <label><input type="checkbox" value="Swimming Pool" onChange={handleChange} checked={formData.amenities.includes("Swimming Pool")} /> Swimming Pool</label>
+
+                  <label><input type="checkbox" value="Garden" onChange={handleChange} checked={formData.amenities.includes("Garden")} /> Garden</label>
+                </div>
+
+                {errors.amenities && <span>{errors.amenities}</span>}
+              </div>
+
+              <div className="input-group">
+                <label>Message</label>
+
+                <textarea
+                  rows="5"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                />
+
+                {errors.message && <span>{errors.message}</span>}
+              </div>
+
+              <div className="button-group">
+                <button type="submit">Submit</button>
+
+                <button
+                  type="button"
+                  className="reset-btn"
+                  onClick={handleReset}
+                >
+                  Reset
+                </button>
+              </div>
+
+            </form>
+          )}
+
+        </div>
+      </section>
+
+      <Footer />
+    </>
   );
 }
 

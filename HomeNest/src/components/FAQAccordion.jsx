@@ -1,49 +1,86 @@
 import { useState } from "react";
+import "./FAQAccordion.css";
 
-const faqs = [
+const faqData = [
   {
-    question: "How do I schedule a site visit?",
-    answer: "You can fill out the enquiry form on our Contact page and our team will reach out to schedule a visit.",
+    question: "How do I schedule a property visit?",
+    answer:
+      "You can schedule a visit by filling out the enquiry form on our Contact page or by contacting one of our agents directly."
   },
   {
-    question: "Are the listings verified?",
-    answer: "Yes, every property listed on HomeNest goes through a verification process before being published.",
+    question: "Are all properties verified?",
+    answer:
+      "Yes. Every property listed on HomeNest is verified by our team before it is published."
   },
   {
-    question: "Do you help with home loans?",
-    answer: "Yes, we assist buyers in connecting with trusted loan partners for financing options.",
+    question: "Do you provide home loan assistance?",
+    answer:
+      "Yes. We partner with leading banks and financial institutions to help you get the best home loan offers."
   },
   {
-    question: "Can I list my own property?",
-    answer: "Currently, listings are managed by our agency partners. Reach out via Contact page for more info.",
-  },
+    question: "Can I rent commercial properties?",
+    answer:
+      "Yes. HomeNest offers residential and commercial properties for buying, renting, and leasing."
+  }
 ];
 
 function FAQAccordion() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(null);
 
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
+  const toggleAccordion = (index) => {
+    if (activeIndex === index) {
+      setActiveIndex(null);
+    } else {
+      setActiveIndex(index);
+    }
   };
 
   return (
-    <section className="py-10">
-      <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
-      <div className="space-y-3">
-        {faqs.map((faq, index) => (
-          <div key={index} className="border rounded-lg overflow-hidden">
-            <button
-              onClick={() => toggleFAQ(index)}
-              className="w-full text-left px-4 py-3 bg-gray-50 font-medium flex justify-between items-center"
+    <section className="faq-section">
+      <div className="container">
+
+        <h2 className="faq-title">
+          Frequently Asked Questions
+        </h2>
+
+        <p className="faq-subtitle">
+          Everything you need to know before buying, renting or leasing a property.
+        </p>
+
+        <div className="faq-container">
+
+          {faqData.map((faq, index) => (
+
+            <div
+              className="faq-item"
+              key={index}
             >
-              {faq.question}
-              <span>{openIndex === index ? "−" : "+"}</span>
-            </button>
-            {openIndex === index && (
-              <div className="px-4 py-3 text-gray-600 bg-white">{faq.answer}</div>
-            )}
-          </div>
-        ))}
+
+              <button
+                className="faq-question"
+                onClick={() => toggleAccordion(index)}
+              >
+
+                <span>{faq.question}</span>
+
+                <span>
+                  {activeIndex === index ? "−" : "+"}
+                </span>
+
+              </button>
+
+              {activeIndex === index && (
+                <div className="faq-answer">
+                  <p>{faq.answer}</p>
+                </div>
+              )}
+
+            </div>
+
+          ))}
+
+        </div>
+
       </div>
     </section>
   );

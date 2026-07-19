@@ -3,19 +3,13 @@ import "./AgentCard.css";
 function AgentCard({ agent }) {
   return (
     <div className="agent-card">
-
-      <img
-        src={agent.photo}
-        alt={agent.name}
-        className="agent-img"
-      />
+      <img src={agent.image} alt={agent.name} />
 
       <h3>{agent.name}</h3>
 
-      <h4>{agent.role}</h4>
+      <h5>{agent.role}</h5>
 
       <p>{agent.bio}</p>
-
     </div>
   );
 }

@@ -1,17 +1,15 @@
 import "./FeatureCard.css";
 
-const FeatureCard = ({ icon, title, desc }) => {
+function FeatureCard({ icon, title, description }) {
   return (
     <div className="feature-card">
-
-      <div className="icon">{icon}</div>
+      <div className="feature-icon">{icon}</div>
 
       <h3>{title}</h3>
 
-      <p>{desc}</p>
-
+      <p>{description}</p>
     </div>
   );
-};
+}
 
 export default FeatureCard;

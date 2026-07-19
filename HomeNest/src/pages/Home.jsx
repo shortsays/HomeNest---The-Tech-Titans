@@ -1,103 +1,78 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import FeatureCard from "../components/FeatureCard";
+import "../components/FeatureCard.css";
 import Footer from "../components/Footer";
-import "../static/Home.css";
+
+import {
+  FaCheckCircle,
+  FaHome,
+  FaVideo,
+  FaBalanceScale,
+} from "react-icons/fa";
 
 const features = [
   {
-    icon: "🏠",
+    icon: <FaCheckCircle />,
     title: "Verified Listings",
-    desc: "Explore authentic and verified property listings."
+    description:
+      "Every property is verified by our experts for a safe buying and renting experience.",
   },
-
   {
-    icon: "💰",
+    icon: <FaHome />,
     title: "Home Loans",
-    desc: "Easy financing solutions from trusted partners."
+    description:
+      "Easy financing options through trusted banking partners with competitive interest rates.",
   },
-
   {
-    icon: "🖥️",
+    icon: <FaVideo />,
     title: "Virtual Tours",
-    desc: "Visit your dream home from anywhere."
+    description:
+      "Explore properties remotely through immersive virtual tours before scheduling visits.",
   },
-
   {
-    icon: "⚖️",
+    icon: <FaBalanceScale />,
     title: "Legal Assistance",
-    desc: "End-to-end documentation and legal support."
-  }
-
+    description:
+      "Complete documentation and legal support for a smooth property transaction.",
+  },
 ];
 
-const Home = () => {
+function Home() {
   return (
     <>
-
       <Navbar />
-
+      
       <Hero />
 
       <section className="features">
-
-        <h2>Why Choose HomeNest?</h2>
-
-        <div className="feature-grid">
-
-          {features.map((feature, index) => (
-
-            <FeatureCard
-              key={index}
-              icon={feature.icon}
-              title={feature.title}
-              desc={feature.desc}
-            />
-
-          ))}
-
-        </div>
-
-      </section>
-
-      <section className="benefits">
-
         <div className="container">
 
-          <h2>Benefits of Choosing Us</h2>
+          <h2 className="section-title">
+            Why Choose HomeNest
+          </h2>
 
-          <div className="benefit-grid">
+          <p className="section-subtitle">
+            We simplify your property search with trusted listings,
+            experienced agents, and complete end-to-end assistance.
+          </p>
 
-            <div>
-              <h3>5000+</h3>
-              <p>Properties Listed</p>
-            </div>
-
-            <div>
-              <h3>1500+</h3>
-              <p>Happy Families</p>
-            </div>
-
-            <div>
-              <h3>120+</h3>
-              <p>Expert Agents</p>
-            </div>
-
-            <div>
-              <h3>24/7</h3>
-              <p>Customer Support</p>
-            </div>
-
+          <div className="feature-grid">
+            {features.map((feature, index) => (
+              <FeatureCard
+                key={index}
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+              />
+            ))}
           </div>
 
         </div>
-
       </section>
-
       <Footer />
-
     </>
   );
-};
+}
 
 export default Home;

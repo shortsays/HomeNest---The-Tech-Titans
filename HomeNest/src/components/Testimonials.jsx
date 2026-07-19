@@ -1,18 +1,45 @@
-import testimonialsData from "../data/testimonials.json";
+import "./Testimonials.css";
+import testimonials from "../data/testimonials.json";
 
 function Testimonials() {
   return (
-    <section className="py-10">
-      <h2 className="text-2xl font-bold mb-6">What Our Clients Say</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {testimonialsData.map((t) => (
-          <div key={t.id} className="bg-gray-50 p-5 rounded-xl shadow-sm">
-            <p className="text-gray-700 italic mb-3">"{t.quote}"</p>
-            <p className="font-semibold">{t.name}</p>
-            <p className="text-sm text-gray-500">{t.role}</p>
-          </div>
-        ))}
+    <section className="testimonial-section">
+
+      <div className="container">
+
+        <h2 className="testimonial-title">
+          What Our Clients Say
+        </h2>
+
+        <p className="testimonial-subtitle">
+          Thousands of happy customers trust HomeNest for their property needs.
+        </p>
+
+        <div className="testimonial-grid">
+
+          {testimonials.map((client) => (
+            <div
+              className="testimonial-card"
+              key={client.id}
+            >
+              <img
+                src={client.image}
+                alt={client.name}
+              />
+
+              <h3>{client.name}</h3>
+
+              <span>{client.designation}</span>
+
+              <p>"{client.review}"</p>
+
+            </div>
+          ))}
+
+        </div>
+
       </div>
+
     </section>
   );
 }

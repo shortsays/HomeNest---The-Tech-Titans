@@ -1,56 +1,61 @@
 import { useState } from "react";
-import propertiesData from "../data/properties.json";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import PropertyCard from "../components/PropertyCard";
+import FilterTabs from "../components/FilterTabs";
+
+import properties from "../data/properties.json";
 import Testimonials from "../components/Testimonials";
 import FAQAccordion from "../components/FAQAccordion";
-import "../static/Properties.css";
 
 function Properties() {
-  const [activeFilter, setActiveFilter] = useState("All");
-
-  const filters = ["All", "Buy", "Rent", "Lease"];
+  const [active, setActive] = useState("All");
 
   const filteredProperties =
-    activeFilter === "All"
-      ? propertiesData
-      : propertiesData.filter((p) => p.purpose === activeFilter);
+    active === "All"
+      ? properties
+      : properties.filter((property) => property.type === active);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-10">
-      <h1 className="text-3xl font-bold mb-2">Explore Properties</h1>
-      <p className="text-gray-500 mb-8">Find your perfect home from our verified listings</p>
+    <>
+      <Navbar />
 
-      {/* Filter Tabs */}
-      <div className="flex gap-3 mb-8">
-        {filters.map((filter) => (
-          <button
-            key={filter}
-            onClick={() => setActiveFilter(filter)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-              activeFilter === filter
-                ? "bg-lime-500 text-white"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-            }`}
-          >
-            {filter}
-          </button>
-        ))}
-      </div>
+      <section className="properties-section">
 
-      {/* Property Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredProperties.length > 0 ? (
-          filteredProperties.map((property) => (
-            <PropertyCard key={property.id} property={property} />
-          ))
-        ) : (
-          <p className="text-gray-500 col-span-full">No properties found for this filter.</p>
-        )}
-      </div>
+        <div className="container">
 
+          <h2 className="properties-title">
+            Explore Our Properties
+          </h2>
+
+          <p className="properties-subtitle">
+            Browse verified apartments, villas, commercial spaces, and plots
+            available for buying, renting, and leasing.
+          </p>
+
+          <FilterTabs
+            active={active}
+            setActive={setActive}
+          />
+
+          <div className="property-grid">
+
+            {filteredProperties.map((property) => (
+              <PropertyCard
+                key={property.id}
+                property={property}
+              />
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
       <Testimonials />
       <FAQAccordion />
-    </div>
+      <Footer />
+    </>
   );
 }
 

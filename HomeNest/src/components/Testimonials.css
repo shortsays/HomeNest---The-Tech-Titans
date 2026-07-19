@@ -1,67 +1,67 @@
-.team-section{
+.testimonial-section{
     padding:100px 0;
-    background:#f8f9fa;
+    background:white;
 }
 
-.team-title{
+.testimonial-title{
     text-align:center;
     font-size:42px;
     margin-bottom:15px;
 }
 
-.team-subtitle{
+.testimonial-subtitle{
     text-align:center;
-    color:#666;
     max-width:650px;
     margin:auto;
+    color:#666;
     margin-bottom:60px;
 }
 
-.agent-grid{
+.testimonial-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(3,1fr);
     gap:30px;
 }
 
-.agent-card{
-    background:white;
-    padding:30px;
+.testimonial-card{
+    background:#f8f9fa;
+    padding:35px;
     border-radius:16px;
     text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
     transition:.3s;
 }
 
-.agent-card:hover{
+.testimonial-card:hover{
     transform:translateY(-10px);
 }
 
-.agent-card img{
-    width:140px;
-    height:140px;
+.testimonial-card img{
+    width:90px;
+    height:90px;
     border-radius:50%;
     object-fit:cover;
     margin:auto;
     margin-bottom:20px;
 }
 
-.agent-card h3{
+.testimonial-card h3{
     margin-bottom:8px;
 }
 
-.agent-card h5{
+.testimonial-card span{
     color:#0d6efd;
-    margin-bottom:15px;
+    font-size:14px;
 }
 
-.agent-card p{
+.testimonial-card p{
+    margin-top:20px;
+    line-height:1.8;
     color:#666;
-    line-height:1.7;
 }
 
 @media(max-width:992px){
 
-.agent-grid{
+.testimonial-grid{
 grid-template-columns:repeat(2,1fr);
 }
 
@@ -69,11 +69,11 @@ grid-template-columns:repeat(2,1fr);
 
 @media(max-width:768px){
 
-.agent-grid{
+.testimonial-grid{
 grid-template-columns:1fr;
 }
 
-.team-title{
+.testimonial-title{
 font-size:34px;
 }
 
